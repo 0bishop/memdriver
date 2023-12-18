@@ -33,6 +33,7 @@ apk upgrade
 # => Reboot VM
 apk add alpine-sdk linux-virt-dev
 ```
+[How to build Kernel Module on Debian](https://gist.github.com/Josua-SR/3ee497179b75e8e164e508f98b12d810)  
 
 ## Running it :
 ```bash
