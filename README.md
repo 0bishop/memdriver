@@ -1,4 +1,4 @@
-# MemDriver : Little Library for Read & Write Mem from Kernel Module
+# MemDriver : Little Library for Read & Write Mem from Linux Kernel Module
 
 ### ⚠️ This is still experimental, its a minimal and half viable.
 
