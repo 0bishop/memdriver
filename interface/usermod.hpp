@@ -8,8 +8,9 @@
     #include <iostream>
     #include <fstream>
     #include <vector>
+    #include <cstring>
 
-    #define __always_inline  inline __attribute__((__always_inline__))
+    #define __always_inline_c  inline __attribute__((__always_inline__))
     #define __unused  __attribute__((unused))
 
     #define RTErr(msg) std::runtime_error(std::string(__FILE__) + ":" + std::to_string(__LINE__) + " " + msg)
@@ -70,7 +71,7 @@
             };
     };
 
-    __always_inline int KModule::load(std::string &module_path) {
+    __always_inline_c int KModule::load(std::string &module_path) {
 
         if (module_path.empty()) {
             std::perror("Module path is null");
@@ -107,7 +108,7 @@
         return 0;
     }
 
-    __always_inline int KModule::unload(std::string &module_name) {
+    __always_inline_c int KModule::unload(std::string &module_name) {
 
         if (module_name.empty()) {
             std::perror("Module name is null");
@@ -175,7 +176,7 @@
             int devicefd;
     };
 
-    __always_inline int KMemory::open_device(void) {
+    __always_inline_c int KMemory::open_device(void) {
         int devicefd = open("/dev/memdriver", O_RDWR);
 
         if (devicefd < 0) {
@@ -187,7 +188,7 @@
         return 0;
     }
 
-    __always_inline int KMemory::read_memory(int fd, void *addr, void *buffer, std::size_t len) {
+    __always_inline_c int KMemory::read_memory(int fd, void *addr, void *buffer, std::size_t len) {
 
         if (fd < 0)
             return -1;
@@ -203,7 +204,7 @@
         return 0;
     }
 
-    __always_inline int KMemory::write_memory(int fd, void *addr, void *buffer, std::size_t len) {
+    __always_inline_c int KMemory::write_memory(int fd, void *addr, void *buffer, std::size_t len) {
 
         if (fd < 0)
             return -1;
