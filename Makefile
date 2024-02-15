@@ -8,8 +8,10 @@ TARGET_DIR := target
 all: | $(TARGET_DIR)
 	rm -rf $(TARGET_DIR)/*
 	$(MAKE) -C $(KDIR) M=$(PWD) modules
-	mv *.order *.symvers driver/*.o driver/*.ko driver/*.mod driver/*.mod.c $(TARGET_DIR)
-	g++ main.cpp -o usermod -s
+	# mv *.order *.symvers driver/*.o driver/*.ko driver/*.mod driver/*.mod.c $(TARGET_DIR)
+	mv .*.o *.order *.symvers .*.cmd driver/*.o driver/*.ko driver/.*.cmd driver/*.mod driver/*.mod.c $(TARGET_DIR)
+
+	clang++ main.cpp -o usermod -s
 
 test: all
 	$(MAKE) -C tester

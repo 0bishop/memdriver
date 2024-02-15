@@ -33,11 +33,17 @@ apk upgrade
 # => Reboot VM
 apk add alpine-sdk linux-virt-dev
 ```
+
+## Building on Ubuntu (tested on 6.6.10-76060610-generic) :
+```bash
+sudo apt-get install build-essential linux-headers-$(uname -r)
+```
+
 [How to build Kernel Module on Debian](https://gist.github.com/Josua-SR/3ee497179b75e8e164e508f98b12d810)  
 
-## Running it :
+## Running it (as sudo) :
 ```bash
-localhost:~/memdriver# make test
+localhost:~/memdriver# sudo make test
 ...
 [ 1548.969609] Execute This:
 [ 1548.969609] ./usermod target/driver.ko 0xffffffffc0600000
@@ -45,7 +51,7 @@ localhost:~/memdriver# make test
 
 ```bash
 # The kernel driver is automatically loaded and freed in memory during runtime
-localhost:~/memdriver# ./usermod target/driver.ko 0xffffffffc0600000
+localhost:~/memdriver# sudo ./usermod target/driver.ko 0xffffffffc0600000
 Kernel Module loaded successfully!
 Value read from module : 42
 Value written to module : 12345
@@ -54,7 +60,7 @@ New Value read from module : 12345
 
 ```bash
 # Will clean and unload the test module
-localhost:~/memdriver# make cleantest
+localhost:~/memdriver# sudo make cleantest
 ```
 
 ```bash

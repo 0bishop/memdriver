@@ -9,7 +9,8 @@
     #include <fstream>
     #include <vector>
     #include <cstring>
-
+	#include <cstdint>
+	
     #define __always_inline_c  inline __attribute__((__always_inline__))
     #define __unused  __attribute__((unused))
 
