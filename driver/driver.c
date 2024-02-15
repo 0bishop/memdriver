@@ -130,7 +130,7 @@ static int __init _driver_init(void) {
     }
 
     // Creating struct class for the device
-    if (IS_ERR(dev_class = class_create(THIS_MODULE, "mem_class"))) {
+    if (IS_ERR(dev_class = class_create("mem_class"))) {
         pr_err("Cannot create the struct class\n");
         goto r_class;
     }
